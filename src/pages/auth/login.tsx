@@ -1,13 +1,28 @@
 import { Button, Card, Checkbox, Flex, Form, Input, Typography } from "antd";
 import AuthLayout from "@/layouts/auth-layout";
 import { LoginInput } from "@/interfaces/auth";
+import { useLazyGetProfileQuery, useLoginMutation } from "@/redux/api/auth-api";
+import { useEffect } from "react";
 
 const Login = () => {
   const [form] = Form.useForm<LoginInput>();
+  const [login, { isLoading }] = useLoginMutation();
+  const [getProfile] = useLazyGetProfileQuery();
 
   const onFinish = (values: LoginInput) => {
-    console.log(values);
+    login(values)
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
+
+  useEffect(() => {
+    getProfile();
+  }, [getProfile]);
+
   return (
     <AuthLayout>
       <Flex
@@ -64,7 +79,7 @@ const Login = () => {
                 </Typography.Link>
               </div>
             </Flex>
-            <Button type="primary" block htmlType="submit">
+            <Button type="primary" block htmlType="submit" loading={isLoading}>
               Masuk
             </Button>
           </Form>

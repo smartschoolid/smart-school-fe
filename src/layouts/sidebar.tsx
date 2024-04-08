@@ -4,11 +4,13 @@ import {
   DashboardOutlined,
   DatabaseOutlined,
   FileOutlined,
+  HomeOutlined,
+  LogoutOutlined,
   PayCircleFilled,
   SettingOutlined,
   UserSwitchOutlined,
 } from "@ant-design/icons";
-import { Flex, Layout, Menu, MenuProps } from "antd";
+import { Button, Flex, Layout, Menu, MenuProps } from "antd";
 import { useNavigate } from "react-router-dom";
 
 const Sidebar: React.FC = () => {
@@ -19,6 +21,12 @@ const Sidebar: React.FC = () => {
       icon: <DashboardOutlined />,
       label: "Dasbor",
       onClick: () => navigate("/"),
+    },
+    {
+      key: "organization",
+      icon: <HomeOutlined />,
+      label: "Organisasi",
+      onClick: () => navigate("/organization"),
     },
     {
       key: "report",
@@ -64,7 +72,6 @@ const Sidebar: React.FC = () => {
 
   const getSelectedKeys = () => {
     const path = window.location.pathname;
-    console.log(path);
     return [path === "/" ? "dashboard" : path.replace("/", "").split("/")[0]];
   };
 
@@ -75,14 +82,22 @@ const Sidebar: React.FC = () => {
       width={230}
       className="sidebar"
     >
-      <Flex vertical gap={10}>
-        <div className="brand">SMARTSCH</div>
-        <Menu
-          theme="light"
-          style={{ border: "none", background: "transparent" }}
-          items={menus}
-          selectedKeys={getSelectedKeys()}
-        />
+      <Flex vertical justify="space-between" style={{ height: "100vh" }}>
+        <Flex vertical gap={5}>
+          <div className="brand">SMARTSCH</div>
+          <Menu
+            theme="light"
+            style={{ border: "none", background: "transparent" }}
+            items={menus}
+            selectedKeys={getSelectedKeys()}
+          />
+        </Flex>
+
+        <div style={{ margin: 20 }}>
+          <Button block icon={<LogoutOutlined />}>
+            Keluar
+          </Button>
+        </div>
       </Flex>
     </Layout.Sider>
   );

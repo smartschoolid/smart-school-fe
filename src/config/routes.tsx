@@ -1,9 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import Login from "../pages/auth/login";
-import Dashboard from "../pages/dashboard/dashboard";
-import Report from "../pages/report/report";
+import Dashboard from "../pages/dashboard";
+import Report from "../pages/report";
 import Register from "../pages/auth/register";
 import ForgotPassword from "../pages/auth/forgot-password";
+import Organization from "@/pages/organization";
 
 const router = createBrowserRouter([
   {
@@ -18,13 +19,14 @@ const router = createBrowserRouter([
     path: "/forgot-password",
     element: <ForgotPassword />,
   },
-  {
-    path: "/report",
-    element: <Report />,
-  },
+
   {
     path: "/",
     element: <Dashboard />,
+  },
+  {
+    path: "organization",
+    element: <Organization />,
   },
   {
     path: "/report",
