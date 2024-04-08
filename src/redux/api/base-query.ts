@@ -1,8 +1,7 @@
 import { fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import apiUrl from "../../config/backend-url";
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: apiUrl,
+  baseUrl: "/api",
   headers: {
     Authorization: `Bearer ${localStorage.getItem("auth_token")}`,
     "Access-Control-Allow-Origin": "*",

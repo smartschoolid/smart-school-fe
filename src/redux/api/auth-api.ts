@@ -25,6 +25,7 @@ export const authApi = createApi({
         };
       },
     }),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     getProfile: builder.query<any, void>({
       query() {
         return {
