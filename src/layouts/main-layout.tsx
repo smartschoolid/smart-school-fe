@@ -7,12 +7,26 @@ import {
   SettingOutlined,
   UserOutlined,
 } from "@ant-design/icons";
+import { useEffect } from "react";
 
 interface MainLayoutProps {
   children: React.ReactNode;
 }
 
 const MainLayout: React.FC<MainLayoutProps> = (props) => {
+  const loginCheck = () => {
+    if (
+      localStorage.getItem("auth_token") === null &&
+      window.location.pathname !== "/login"
+    ) {
+      window.location.href = "/login";
+    }
+  };
+
+  useEffect(() => {
+    loginCheck();
+  }, []);
+
   return (
     <Layout
       style={{
