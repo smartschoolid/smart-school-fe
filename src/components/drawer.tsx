@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from "@/redux";
-import { closeModal, openModal } from "@/redux/features/modal-slice";
+import { closeModal } from "@/redux/features/modal-slice";
 import { Drawer } from "antd";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */

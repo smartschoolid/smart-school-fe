@@ -1,5 +1,5 @@
 import { ConfigProvider } from "antd";
-import "./App.css";
+import "@/App.css";
 import { theme } from "./config/theme";
 import { RouterProvider } from "react-router-dom";
 import router from "./config/routes";

@@ -19,12 +19,15 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
+    "baseUrl": "./src",
     "paths": {
-      "@/*": ["./src/*"]
-    } 
+//      "@/*": ["./src/*"],
+      "@/*": ["./*"]
+    },
+    "esModuleInterop": true
   },
-  "include": ["src"],
+  "include": ["src","./jest.setup.ts"],
   // make alas depend on the node config
 
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [{ "path": "./tsconfig.node.json" }], 
 }
