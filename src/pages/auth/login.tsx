@@ -3,11 +3,19 @@ import AuthLayout from "@/layouts/auth-layout";
 import { LoginInput } from "@/interfaces/auth";
 import { useLazyGetProfileQuery, useLoginMutation } from "@/redux/api/auth-api";
 import { useEffect } from "react";
+import { ACTIVE_TOKEN } from "@/utils";
 
 const Login = () => {
   const [form] = Form.useForm<LoginInput>();
   const [login, { isLoading }] = useLoginMutation();
   const [getProfile] = useLazyGetProfileQuery();
+
+  const redirectToHome = () => {
+    const hasTOken = ACTIVE_TOKEN;
+    if (hasTOken) {
+      window.location.href = "/";
+    }
+  };
 
   const onFinish = (values: LoginInput) => {
     login(values)
@@ -20,6 +28,7 @@ const Login = () => {
   };
 
   useEffect(() => {
+    redirectToHome();
     getProfile();
   }, [getProfile]);
 

@@ -4,13 +4,18 @@ import { Provider } from "react-redux";
 import { store } from "@/redux/store";
 import Organization from "@/pages/organization";
 import OrganizationForm from "@/pages/organization/drawer/organization-form";
+import { ReactNode } from "react";
+
+const InitProvider = ({ children }: { children: ReactNode }) => {
+  return <Provider store={store}>{children}</Provider>;
+};
 
 describe("Organization test", () => {
   test("Render Login Page", async () => {
     render(
-      <Provider store={store}>
+      <InitProvider>
         <Organization />
-      </Provider>
+      </InitProvider>
     );
 
     await waitFor(() => {
@@ -20,9 +25,9 @@ describe("Organization test", () => {
 
   test("Render Create/Edit Drawer", async () => {
     render(
-      <Provider store={store}>
+      <InitProvider>
         <OrganizationForm />
-      </Provider>
+      </InitProvider>
     );
 
     await waitFor(() => {
