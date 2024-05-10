@@ -3,23 +3,32 @@ import HeaderLayout from "./header";
 import Sidebar from "./sidebar";
 import {
   BellOutlined,
-  HomeOutlined,
+  DownOutlined,
   SettingOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useRef } from "react";
+import SchoolSelection, {
+  SchoolSelectionRef,
+} from "@/components/school-selection";
 
 interface MainLayoutProps {
   children: React.ReactNode;
 }
 
 const MainLayout: React.FC<MainLayoutProps> = (props) => {
+  const schoolSelectRef = useRef<SchoolSelectionRef>(null);
+
   const token = localStorage.getItem("auth_token");
   const loginCheck = useCallback(() => {
     if (token === null && window.location.pathname !== "/login") {
       window.location.href = "/login";
     }
   }, [token]);
+
+  const openSchoolSelection = () => {
+    schoolSelectRef.current?.open();
+  };
 
   useEffect(() => {
     loginCheck();
@@ -41,7 +50,9 @@ const MainLayout: React.FC<MainLayoutProps> = (props) => {
           >
             <HeaderLayout
               left={
-                <Button icon={<HomeOutlined />}>SMK Negeri 1 Gresik</Button>
+                <Button onClick={openSchoolSelection}>
+                  SMK Negeri 1 Gresik <DownOutlined />
+                </Button>
               }
               right={
                 <Space>
@@ -71,6 +82,7 @@ const MainLayout: React.FC<MainLayoutProps> = (props) => {
       ) : (
         <></>
       )}
+      <SchoolSelection ref={schoolSelectRef} />
     </Layout>
   );
 };

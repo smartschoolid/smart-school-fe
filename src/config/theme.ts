@@ -20,7 +20,7 @@ export const theme: ThemeConfig = {
     fontSize: 14,
     colorPrimary: colors.primary,
     controlHeight: 36,
-    borderRadius: 8,
+    borderRadius: 5,
     colorBorder: colors.borderColor,
     colorText: colors.textPrimary,
     colorLink: colors.primary,
