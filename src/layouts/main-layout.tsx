@@ -22,7 +22,7 @@ const MainLayout: React.FC<MainLayoutProps> = (props) => {
   const token = localStorage.getItem("auth_token");
   const loginCheck = useCallback(() => {
     if (token === null && window.location.pathname !== "/login") {
-      window.location.href = "/login";
+      //window.location.href = "/login";
     }
   }, [token]);
 
