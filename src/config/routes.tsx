@@ -5,6 +5,8 @@ import Report from "../pages/report";
 import Register from "../pages/auth/register";
 import ForgotPassword from "../pages/auth/forgot-password";
 import Organization from "@/pages/organization";
+import Attendance from "@/pages/attendance";
+import CreateAttendance from "@/pages/attendance/create-attendance";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +33,14 @@ const router = createBrowserRouter([
   {
     path: "/report",
     element: <Report />,
+  },
+  {
+    path: "/attendance",
+    element: <Attendance />,
+  },
+  {
+    path: "/attendance/new",
+    element: <CreateAttendance />,
   },
 ]);
 

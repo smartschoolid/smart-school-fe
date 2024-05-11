@@ -2,7 +2,7 @@ import { ThemeConfig } from "antd";
 
 const colors = {
   primary: "#2094FF",
-  secondary: "#f0f0f0",
+  secondary: "#f2f2f2",
   success: "#52c41a",
   warning: "#faad14",
   danger: "#f5222d",
@@ -13,14 +13,21 @@ const colors = {
   inputBg: "#FDFDFD",
 };
 
+const globalStyles = {
+  borderRadius: 5,
+  controlHeight: 36,
+  fontWightStrong: 700,
+  fontSize: 14,
+};
+
 export const theme: ThemeConfig = {
   token: {
     fontFamily: "Inter",
-    fontWeightStrong: 700,
-    fontSize: 14,
+    fontWeightStrong: globalStyles.fontWightStrong,
+    fontSize: globalStyles.fontSize,
     colorPrimary: colors.primary,
-    controlHeight: 36,
-    borderRadius: 5,
+    controlHeight: globalStyles.controlHeight,
+    borderRadius: globalStyles.borderRadius,
     colorBorder: colors.borderColor,
     colorText: colors.textPrimary,
     colorLink: colors.primary,
@@ -31,6 +38,9 @@ export const theme: ThemeConfig = {
     },
     Card: {
       padding: 25,
+      borderRadius: globalStyles.borderRadius + 2,
+      borderRadiusOuter: globalStyles.borderRadius + 2,
+      headerBg: colors.inputBg,
     },
     Form: {
       labelColor: colors.textSecondary,

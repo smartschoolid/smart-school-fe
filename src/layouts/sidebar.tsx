@@ -44,6 +44,7 @@ const Sidebar: React.FC = () => {
       key: "attendance",
       icon: <CheckCircleOutlined />,
       label: "Absensi",
+      onClick: () => navigate("/attendance"),
     },
     {
       key: "schedule",

@@ -14,3 +14,46 @@ export const organizations = [
     email: "smkn1gresik@mail.com",
   },
 ];
+
+export const attendancesData = [
+  {
+    id: 1,
+    name: "John Doe",
+    class_name: "XII RPL 1",
+    lesson: "Pemrograman Dasar",
+    date: "2021-08-01",
+    status: "Hadir",
+  },
+  {
+    id: 2,
+    name: "Jane Doe",
+    class_name: "XII RPL 1",
+    lesson: "Pemrograman Dasar",
+    date: "2021-08-01",
+    status: "Hadir",
+  },
+  {
+    id: 3,
+    name: "Martha Jenn",
+    class_name: "XII RPL 1",
+    lesson: "Pemrograman Dasar",
+    date: "2021-08-01",
+    status: "Hadir",
+  },
+  {
+    id: 4,
+    name: "Martha Jenn",
+    class_name: "XII RPL 1",
+    lesson: "Pemrograman Dasar",
+    date: "2021-08-01",
+    status: "Hadir",
+  },
+  {
+    id: 6,
+    name: "Martha Jenn",
+    class_name: "XII RPL 1",
+    lesson: "Pemrograman Dasar",
+    date: "2021-08-01",
+    status: "Hadir",
+  },
+];
