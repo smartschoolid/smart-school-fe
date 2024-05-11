@@ -19,7 +19,7 @@ jobs:
           node-version: "21"
 
       - name: Install dependencies with PNPM
-        run: curl -f https://get.pnpm.io/v6.js | node - add --global pnpm && pnpm ci
+        run: curl -f https://get.pnpm.io/v6.js | node - add --global pnpm && pnpm install
 
       - name: Build
         run: pnpm run build
